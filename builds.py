@@ -2,7 +2,7 @@ from pathlib import Path
 
 import typer
 
-from pycpy import STATIC_DIR
+from pycpy import PLACEHOLDER_NAME, PROJECT_NAME, STATIC_DIR
 
 
 def _process_file(to_file: Path, data: str):
@@ -31,6 +31,16 @@ def readme(to_dir: Path = Path.cwd()):
     name = "README.md"
     from_file = STATIC_DIR / name
     data = from_file.read_text()
+    to_file = to_dir / name
+
+    _process_file(to_file, data)
+
+
+def pyproject(to_dir: Path = Path.cwd()):
+    name = "pyproject.toml"
+    from_file = STATIC_DIR / name
+    data = from_file.read_text()
+    data = data.replace(PLACEHOLDER_NAME, PROJECT_NAME)
     to_file = to_dir / name
 
     _process_file(to_file, data)
