@@ -25,4 +25,4 @@ def delete_virtual_environment(dir: Path = Path.cwd()):
         console.print(f"{env_dir} not fully deleted!", style="red")
         raise typer.Exit(0)
 
-    console.print("Virtual Environment {env_dir} deleted", style="green")
+    console.print(f"Virtual Environment {env_dir} deleted", style="green")
