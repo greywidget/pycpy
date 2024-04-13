@@ -1,5 +1,9 @@
 import typer
 
+from builds import git_ignore, pyproject, readme
+
+from . import console
+
 app = typer.Typer(add_completion=False)
 
 
@@ -13,5 +17,9 @@ def run():
     """
     copy_files = typer.confirm("Copy default project files?")
     if not copy_files:
-        print("Bypassing project file copy")
-        typer.Exit()
+        console.print("Bypassing project file copy", style="yellow")
+        raise typer.Exit(0)
+
+    git_ignore()
+    pyproject()
+    readme()

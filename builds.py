@@ -2,18 +2,18 @@ from pathlib import Path
 
 import typer
 
-from pycpy import PLACEHOLDER_NAME, PROJECT_NAME, STATIC_DIR
+from pycpy import PLACEHOLDER_NAME, PROJECT_NAME, STATIC_DIR, console
 
 
 def _process_file(to_file: Path, data: str):
     if to_file.exists():
         overwrite = typer.confirm(f"{to_file.name} already exists. Overwrite it?")
         if not overwrite:
-            print(f"Leaving existing file {to_file.name}")
+            console.print(f"Leaving existing file {to_file.name}", style="yellow")
             return
 
         to_file.unlink()
-        print(f"Overwriting existing file {to_file.name}")
+        console.print(f"Overwriting existing file {to_file.name}", style="red")
 
     to_file.write_text(data)
 
