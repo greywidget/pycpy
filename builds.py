@@ -25,3 +25,12 @@ def git_ignore(to_dir: Path = Path.cwd()):
     to_file = to_dir / name
 
     _process_file(to_file, data)
+
+
+def readme(to_dir: Path = Path.cwd()):
+    name = "README.md"
+    from_file = STATIC_DIR / name
+    data = from_file.read_text()
+    to_file = to_dir / name
+
+    _process_file(to_file, data)
