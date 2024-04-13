@@ -1,7 +1,7 @@
 from unittest.mock import patch
 
-from builds import pyproject
 from pycpy import PLACEHOLDER_NAME, PROJECT_NAME, STATIC_DIR
+from pycpy.builds import pyproject
 
 NAME = "pyproject.toml"
 RANDOM_DATA = "I just make this stuff up"

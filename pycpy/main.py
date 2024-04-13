@@ -2,10 +2,9 @@ from pathlib import Path
 
 import typer
 
-from builds import git_ignore, pyproject, readme
-from virtenv import delete_virtual_environment
-
 from . import console
+from .builds import git_ignore, pyproject, readme
+from .virtenv import delete_virtual_environment
 
 app = typer.Typer(add_completion=False)
 

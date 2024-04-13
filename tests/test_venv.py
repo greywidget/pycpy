@@ -4,7 +4,7 @@ from unittest.mock import patch
 import click
 import pytest
 
-from virtenv import delete_virtual_environment
+from pycpy.virtenv import delete_virtual_environment
 
 RANDOM_DATA = "I just make this stuff up"
 

@@ -1,7 +1,7 @@
 from unittest.mock import patch
 
-from builds import git_ignore
 from pycpy import STATIC_DIR
+from pycpy.builds import git_ignore
 
 NAME = ".gitignore"
 RANDOM_DATA = "I just make this stuff up"

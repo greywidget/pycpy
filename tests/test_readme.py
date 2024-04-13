@@ -1,7 +1,7 @@
 from unittest.mock import patch
 
-from builds import readme
 from pycpy import STATIC_DIR
+from pycpy.builds import readme
 
 NAME = "README.md"
 RANDOM_DATA = "I just make this stuff up"
