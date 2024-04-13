@@ -18,9 +18,9 @@ def _process_file(to_file: Path, data: str):
     to_file.write_text(data)
 
 
-def git_ignore(from_dir: Path = STATIC_DIR, to_dir: Path = Path.cwd()):
+def git_ignore(to_dir: Path = Path.cwd()):
     name = ".gitignore"
-    from_file = from_dir / name
+    from_file = STATIC_DIR / name
     data = from_file.read_text()
     to_file = to_dir / name
 
