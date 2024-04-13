@@ -1,6 +1,9 @@
+from pathlib import Path
+
 import typer
 
 from builds import git_ignore, pyproject, readme
+from virtenv import delete_virtual_environment
 
 from . import console
 
@@ -8,9 +11,9 @@ app = typer.Typer(add_completion=False)
 
 
 @app.command()
-def run():
+def files():
     """
-    PyCpy - copy project scripts to new project directory\n
+    Copy project scripts to new project directory\n
     - .gitignore\n
     - pyproject.toml\n
     - README.md
@@ -23,3 +26,9 @@ def run():
     git_ignore()
     pyproject()
     readme()
+
+
+@app.command()
+def rmvenv(dir: Path = Path.cwd()):
+    """Delete existing Virtual Environment"""
+    delete_virtual_environment(dir)
