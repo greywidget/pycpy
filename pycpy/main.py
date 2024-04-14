@@ -1,3 +1,4 @@
+from importlib.metadata import version
 from pathlib import Path
 
 import typer
@@ -31,3 +32,27 @@ def files():
 def rmvenv(dir: Path = Path.cwd()):
     """Delete existing Virtual Environment"""
     delete_virtual_environment(dir)
+
+
+def version_callback(value: bool):
+    if value:
+        print(f"PyCpy {version('pycpy')}")
+        raise typer.Exit()
+
+
+@app.callback()
+def get_version(
+    vers: bool = typer.Option(
+        None,
+        "--version",
+        "-V",
+        callback=version_callback,
+        is_eager=True,
+        help="Print the version and exit.",
+    ),
+):
+    pass
+
+
+if __name__ == "__main__":
+    app()
