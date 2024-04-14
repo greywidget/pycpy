@@ -1,7 +1,9 @@
 from importlib.metadata import version
 from pathlib import Path
+from typing import Optional
 
 import typer
+from typing_extensions import Annotated
 
 from . import console
 from .builds import git_ignore, pyproject, readme
@@ -42,14 +44,16 @@ def version_callback(value: bool):
 
 @app.callback()
 def get_version(
-    vers: bool = typer.Option(
-        None,
-        "--version",
-        "-V",
-        callback=version_callback,
-        is_eager=True,
-        help="Print the version and exit.",
-    ),
+    vers: Annotated[
+        Optional[bool],
+        typer.Option(
+            "--version",
+            "-V",
+            callback=version_callback,
+            is_eager=True,
+            help="Print the version and exit.",
+        ),
+    ] = None,
 ):
     pass
 
