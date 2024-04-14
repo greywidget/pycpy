@@ -17,7 +17,7 @@ def delete_virtual_environment(dir: Path = Path.cwd()):
 
     confirm_delete = typer.confirm(f"Delete directory {env_dir}?")
     if not confirm_delete:
-        console.print("Leaving directory {env_dir} in place", style="yellow")
+        console.print(f"Leaving directory {env_dir} in place", style="yellow")
         return
 
     rmtree(env_dir)
