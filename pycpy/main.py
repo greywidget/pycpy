@@ -1,5 +1,4 @@
 from importlib.metadata import version
-from pathlib import Path
 from typing import Optional
 
 import typer
@@ -15,7 +14,7 @@ app = typer.Typer(add_completion=False)
 @app.command()
 def files():
     """
-    Copy project scripts to new project directory\n
+    Copy project scripts to current directory.\n
     - .gitignore\n
     - pyproject.toml\n
     - README.md
@@ -31,9 +30,9 @@ def files():
 
 
 @app.command()
-def rmvenv(dir: Path = Path.cwd()):
-    """Delete existing Virtual Environment"""
-    delete_virtual_environment(dir)
+def rmvenv():
+    """Delete existing Virtual Environment in current directory."""
+    delete_virtual_environment()
 
 
 def version_callback(value: bool):
