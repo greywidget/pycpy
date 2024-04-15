@@ -7,7 +7,7 @@ NAME = ".gitignore"
 RANDOM_DATA = "I just make this stuff up"
 
 
-def test_new_file(from_dir: Path, to_dir: Path):
+def test_git_new_file(from_dir: Path, to_dir: Path):
     from_file = from_dir / NAME
     data = from_file.read_text()
     to_file = to_dir / NAME
@@ -19,7 +19,7 @@ def test_new_file(from_dir: Path, to_dir: Path):
 
 
 @patch("typer.confirm")
-def test_existing_file_keep(mock_typer, from_dir: Path, to_dir: Path):
+def test_git_existing_file_keep(mock_typer, from_dir: Path, to_dir: Path):
     mock_typer.return_value = False
 
     to_file = to_dir / NAME
@@ -30,7 +30,7 @@ def test_existing_file_keep(mock_typer, from_dir: Path, to_dir: Path):
 
 
 @patch("typer.confirm")
-def test_existing_file_replace(mock_typer, from_dir: Path, to_dir: Path):
+def test_git_existing_file_replace(mock_typer, from_dir: Path, to_dir: Path):
     mock_typer.return_value = True
 
     from_file = from_dir / NAME
