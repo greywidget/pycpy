@@ -9,3 +9,7 @@ Call from alias in Powershell or zsh
 - `hatch build -c -t wheel`
 - Copy wheel file to `~\python_wheels`
 - Install/update `pipx` from above wheel file.
+
+## Updating with `pipx`
+`pipx upgrade` expects a package, so i
+- `pipx install --force C:\Users\Craig\python_wheels\pycpy-0.0.3-py3-none-any.whl`
